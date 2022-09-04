@@ -15,10 +15,8 @@ Deno.test("E2E test", async (t) => {
 
   await t.step("click the logo", async () => {
     await page.location(index);
-
     const image = await page.querySelector("img");
     await image.click({ waitFor: "navigation" });
-
     assertEquals(await page.location(), "https://www.active-connector.com/");
   });
 

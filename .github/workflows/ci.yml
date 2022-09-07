@@ -38,3 +38,4 @@ jobs:
 
       - name: Test
         run: deno task start && CHROME_BIN=$(which chrome) deno task test --quiet
+        timeout-minutes: 5

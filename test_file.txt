@@ -1,2 +1,2 @@
 
-understand the project
+how does deno and fresh work?

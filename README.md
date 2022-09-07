@@ -3,14 +3,14 @@
 ## Problem
 
 Make changes on the project to pass CI on GitHub Actions, without modifying or
-removing any lines in the original code.
+removing any existing lines in the original code.
 
 > **Warning**\
 > You may not refer any other forks or pull-requests of this repository, or ask
 > someone for help.
 
 > **Note**\
-> Expected time required: 20-60 min\
+> Expected time required: 30-180 min\
 > Expected amount of code added: approx. 30 lines
 
 ## Submission
@@ -32,7 +32,7 @@ Feel free to submit an uncompleted work and ask questions there.
 Application:
 
 - Language: [TypeScript](https://www.typescriptlang.org/)
-- Runtime: [Deno](https://deno.land/) (latest)
+- Runtime: [Deno](https://deno.land/)
 - Framework: [Fresh](https://fresh.deno.dev/)
 
 DevOps:
@@ -41,10 +41,10 @@ DevOps:
 - CI/CD: [GitHub Actions](https://github.co.jp/features/actions)
 - E2E Test: [Sinco](https://drash.land/sinco/)
 
+This does not necessarily reflect those in our real applications.
+
 **You are not expected to be experienced with all of these**, but expected to be
 able to learn them quickly by yourself if needed.
-
-**The stack above includes techs that we don't use in our real applications.**
 
 ### Run the app locally
 

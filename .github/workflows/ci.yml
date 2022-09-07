@@ -34,4 +34,4 @@ jobs:
         run: deno lint
 
       - name: Test
-        run: deno task start && CHROME_BIN=$(which chrome) deno task test --quiet
+        run: deno task start && CHROME_BIN=$(which chrome) deno task test --quiet --allow-none

@@ -34,9 +34,7 @@ jobs:
         run: deno lint
 
       - name: Run the app locally
-        run: 
-          deno task dev
-          sleep 5
+        run: deno task dev & curl http://localhost:8000
 
       - name: Test
         run: deno task start && CHROME_BIN=$(which chrome) deno task test --quiet

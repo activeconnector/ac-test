@@ -13,6 +13,8 @@ export default function Home() {
       <h2>
         Skill Test (Software Engineer)
       </h2>
+      <input type="text" ></input>
+      <button type="button" ></button>
     </div>
   );
 }

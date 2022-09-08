@@ -27,12 +27,6 @@ jobs:
         with:
           deno-version: v1.x
 
-      - name: Format
-        run: deno fmt --check
-
-      - name: Lint
-        run: deno lint
-
       - name: Run the app locally
         run: deno task dev &
 

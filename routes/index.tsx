@@ -13,9 +13,7 @@ export default function Home() {
       <h2>
         Skill Test (Software Engineer)
       </h2>
-      <p>
-          <input type="text" id="jobInput"/>
-      </p>
+
       <button id="search" onclick="search()">Search</button>
     </div>
   );

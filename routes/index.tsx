@@ -24,7 +24,8 @@ export default function Home() {
 <Helmet>
  <script>
    function search(){
-      var input = document.getElementById("jobInput").value;
+      var input; 
+      input = document.getElementById("jobInput").value;
    
       if (input == "engineer") {
        document.getElementById("div").innerText = "Job \"engineer\" is open for you!"

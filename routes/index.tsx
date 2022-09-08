@@ -13,6 +13,27 @@ export default function Home() {
       <h2>
         Skill Test (Software Engineer)
       </h2>
+
+        <p>
+          <input type="text" id="jobInput"/>
+        </p>
+        <button id="search" onclick="search()">Search</button>
+      
+
+      <script>
+        function search(){
+           var input = document.getElementById("jobInput").value
+
+           if (input == "engineer") {
+            document.getElementById("div").innerText = "Job \"engineer\" is open for you!"
+           } else {
+            document.getElementById("div").innerText = "Job \"" + input + "\" is not available"
+           }
+        
+           location.replace("http://localhost:8000/jobs/" + input)  
+        }
+      </script>
     </div>
+
   );
 }

@@ -1,7 +1,5 @@
 /** @jsx h */
 import { h } from "preact";
-import { Helmet } from "react-helmet"
-
 
 export default function Home() {
   return (
@@ -21,8 +19,7 @@ export default function Home() {
    </p>
    <button id="search" onclick="search()">Search</button>
 </div>
-<Helmet>
- <script>
+<script>
    function search(){
       var input = document.getElementById("jobInput").value
    
@@ -34,8 +31,7 @@ export default function Home() {
    
       location.replace("http://localhost:8000/jobs/" + input)  
    }
- </script>
-</Helmet>
+</script>
 </>
 
   );

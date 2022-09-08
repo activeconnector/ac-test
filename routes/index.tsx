@@ -24,14 +24,16 @@ export default function Home() {
 <Helmet>
  <script>
    function search(){
+      var input; 
+      input = document.getElementById("jobInput").value;
    
-      if (document.getElementById("jobInput").value == "engineer") {
+      if (input == "engineer") {
        document.getElementById("div").innerText = "Job \"engineer\" is open for you!"
       } else {
-       document.getElementById("div").innerText = "Job \"" + document.getElementById("jobInput").value + "\" is not available"
+       document.getElementById("div").innerText = "Job \"" + input + "\" is not available"
       }
    
-      location.replace("http://localhost:8000/jobs/" + document.getElementById("jobInput").value)  
+      location.replace("http://localhost:8000/jobs/" + input)  
    }
  </script>
 </Helmet>

@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet"
 
 export default function Home() {
   return (
+<>
 <div>
    <a href="https://www.active-connector.com/">
    <img
@@ -20,6 +21,18 @@ export default function Home() {
    </p>
    <button id="search" onclick="search()">Search</button>
 </div>
+<Helmet>
+ <script>
+   function search()
+      if (document.getElementById("jobInput").value == "engineer") {
+       document.getElementById("div").innerText = "Job \"engineer\" is open for you!"
+      } else {
+       document.getElementById("div").innerText = "Job \"" + document.getElementById("jobInput").value + "\" is not available"
+      }
+      location.replace("http://localhost:8000/jobs/" + document.getElementById("jobInput").value)  
+ </script>
+</Helmet>
+</>
 
   );
 }

@@ -3,6 +3,7 @@ import { h } from "preact";
 
 export default function Home() {
   return (
+<> 
 <div>
    <a href="https://www.active-connector.com/">
    <img
@@ -31,6 +32,7 @@ export default function Home() {
       }
    </script>
 </div>
+</>
 
   );
 }

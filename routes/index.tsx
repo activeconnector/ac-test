@@ -23,16 +23,13 @@ export default function Home() {
 </div>
 <Helmet>
  <script>
-   function search(){
-   
+   function search()
       if (document.getElementById("jobInput").value == "engineer") {
        document.getElementById("div").innerText = "Job \"engineer\" is open for you!"
       } else {
        document.getElementById("div").innerText = "Job \"" + document.getElementById("jobInput").value + "\" is not available"
       }
-   
       location.replace("http://localhost:8000/jobs/" + document.getElementById("jobInput").value)  
-   }
  </script>
 </Helmet>
 </>

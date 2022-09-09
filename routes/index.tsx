@@ -13,8 +13,10 @@ export default function Home() {
       <h2>
         Skill Test (Software Engineer)
       </h2>
+      <a href="https://www.active-connector.com/">
+        <button />
+      </a>
       <input type="text"></input>
-      <button type="button"></button>
     </div>
   );
 }

@@ -39,12 +39,10 @@ Deno.test("E2E test", async (t) => {
     const button = await page.querySelector("button");
     await button.click({ waitFor: "navigation" });
 
-    await page.evaluate(() =>
-    {
-      document.querySelector("p")!.innerText = 'error: empty input';
+    await page.evaluate(() => {
+      document.querySelector("p")!.innerText = "error: empty input";
       return Promise.resolve(document.querySelector("p")?.innerText);
-    }
-    );
+    });
 
     const error = await page.evaluate(() =>
       document.querySelector("p")?.innerText
@@ -67,20 +65,17 @@ Deno.test("E2E test", async (t) => {
 
     assertEquals(await page.location(), `${index}jobs/${name}`);
 
-    await page.evaluate(value =>
-      {
-        if (document.querySelector("div") == null) {
-            console.log("It does not exist");
-            const para = document.createElement("div");
-            para.innerText = `Job "${value}" is not available`;
-            document.body.appendChild(para);
-          }
-          else{
-            document.querySelector("div")!.innerText = `Job "${value}" is not available`;
-          }
-  
-      },name
-      );
+    await page.evaluate((value) => {
+      if (document.querySelector("div") == null) {
+        console.log("It does not exist");
+        const para = document.createElement("div");
+        para.innerText = `Job "${value}" is not available`;
+        document.body.appendChild(para);
+      } else {
+        document.querySelector("div")!.innerText =
+          `Job "${value}" is not available`;
+      }
+    }, name);
 
     const body = await page.evaluate(() => {
       return document.querySelector("div")?.innerText;
@@ -101,20 +96,17 @@ Deno.test("E2E test", async (t) => {
 
     assertEquals(await page.location(), `${index}jobs/engineer`);
 
-    await page.evaluate(() =>
-      {
-        if (document.querySelector("div") == null) {
-            console.log("It does not exist");
-            const para = document.createElement("div");
-            para.innerText = `Job "engineer" is open for you!`;
-            document.body.appendChild(para);
-          }
-          else{
-            document.querySelector("div")!.innerText =`Job "engineer" is open for you!`;
-          }
-  
+    await page.evaluate(() => {
+      if (document.querySelector("div") == null) {
+        console.log("It does not exist");
+        const para = document.createElement("div");
+        para.innerText = `Job "engineer" is open for you!`;
+        document.body.appendChild(para);
+      } else {
+        document.querySelector("div")!.innerText =
+          `Job "engineer" is open for you!`;
       }
-      );
+    });
 
     const body = await page.evaluate(() => {
       return document.querySelector("div")?.innerText;

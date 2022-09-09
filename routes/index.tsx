@@ -5,14 +5,13 @@ export default function Home() {
   return (
     <div>
       <a href="https://www.active-connector.com/">
-        <img
-          src="/logo.png"
-          alt="Active Connector company logo"
-        />
+        <img src="/logo.png" alt="Active Connector company logo" />
       </a>
-      <h2>
-        Skill Test (Software Engineer)
-      </h2>
+      <h2>Skill Test (Software Engineer)</h2>
+      <a href="https://www.active-connector.com/">
+        <button />
+      </a>
+      <input type="text"></input>
     </div>
   );
 }

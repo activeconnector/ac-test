@@ -1,6 +1,6 @@
 /** @jsx h */
 import { h } from "preact";
-import { Handlers, PageProps } from "$fresh/server.ts";
+import { PageProps } from "$fresh/server.ts";
 import Search from "../islands/search.tsx";
 
 export default function JobPage(props: PageProps) {

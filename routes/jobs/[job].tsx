@@ -1,6 +1,6 @@
 /** @jsx h */
 import { h } from "preact";
-import { Handlers, PageProps } from "$fresh/server.ts";
+import { PageProps } from "$fresh/server.ts";
 
 export default function JobPage(props: PageProps) {
   const jobInput = props.params.job;

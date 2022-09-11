@@ -37,4 +37,4 @@ jobs:
         run: deno task dev &
 
       - name: Test
-        run: deno task start && CHROME_BIN=$(which chrome) deno task test --quiet
+        run: deno task start && CHROME_BIN=$(which chrome) deno task test --quiet --trace-ops

@@ -1,3 +1,4 @@
+import { delay } from "https://deno.land/std@0.150.0/async/delay.ts";
 import { buildFor } from "sinco/mod.ts";
 import { assertEquals } from "testing/asserts.ts";
 
@@ -14,6 +15,7 @@ Deno.test("E2E test", async (t) => {
   /* Beginning of tests */
 
   await t.step("click the logo", async () => {
+    await delay(100);
     await page.location(index);
 
     const image = await page.querySelector("img");
@@ -25,11 +27,13 @@ Deno.test("E2E test", async (t) => {
   await page.location(index);
 
   await t.step("input is empty", async () => {
+    await delay(100);
     const input = await page.querySelector("input");
     assertEquals(await input.value(), "");
   });
 
   await t.step("error is not shown", async () => {
+    await delay(100);
     const error = await page.evaluate(() =>
       document.querySelector("p")?.innerText
     );
@@ -37,6 +41,7 @@ Deno.test("E2E test", async (t) => {
   });
 
   await t.step("show error for an empty input", async () => {
+    await delay(100);
     const button = await page.querySelector("button");
     await button.click({ waitFor: "navigation" });
 
@@ -47,6 +52,7 @@ Deno.test("E2E test", async (t) => {
   });
 
   await t.step("input a random string and click the button", async () => {
+    await delay(100);
     const input = await page.querySelector("input");
 
     const name = crypto.randomUUID().slice(0, 7);
@@ -66,6 +72,7 @@ Deno.test("E2E test", async (t) => {
   await page.location(index);
 
   await t.step("input 'engineer' and click the button", async () => {
+    await delay(100);
     const input = await page.querySelector("input");
     await input.value("engineer");
 

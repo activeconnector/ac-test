@@ -33,5 +33,8 @@ jobs:
       - name: Lint
         run: deno lint
 
+      - name: Run the app locally
+        run: deno task dev &
+
       - name: Test
         run: deno task start && CHROME_BIN=$(which chrome) deno task test --quiet

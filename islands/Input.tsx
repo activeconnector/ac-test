@@ -1,8 +1,7 @@
 /** @jsx h */
 import { h, createRef } from "preact";
-import Input from "../islands/Input.tsx";
 
-export default function Home() {
+export default function Input() {
   const input = createRef();
 
   const btnClickHandler = () => {
@@ -13,13 +12,13 @@ export default function Home() {
         : "/error";
     aEle.click();
   };
+
   return (
     <div>
-      <a href="https://www.active-connector.com/">
-        <img src="/logo.png" alt="Active Connector company logo" />
-      </a>
-      <h2>Skill Test (Software Engineer)</h2>
-      <Input />
+      <input type="text" ref={input} />
+      <button onClick={btnClickHandler}>
+        <a>submit</a>
+      </button>
     </div>
   );
 }

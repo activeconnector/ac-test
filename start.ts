@@ -1,6 +1,5 @@
-const proc = Deno.run({
+Deno.run({
   cmd: ["deno", "task", "dev"],
 });
 
-proc.close();
-Deno.exit(0);
+

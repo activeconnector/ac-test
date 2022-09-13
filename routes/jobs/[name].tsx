@@ -6,5 +6,5 @@ export default function InputPage(props) {
   if (props.params.name === "engineer") {
     text = 'Job "engineer" is open for you!';
   }
-  return <div>{text}</div>;
+  return (<div>{text}</div>);
 }

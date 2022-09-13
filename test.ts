@@ -85,9 +85,9 @@ Deno.test(
       });
       assertEquals(body, `Job "engineer" is open for you!`);
     });
-
     /* End of tests */
 
     await browser.close();
   },
-);
+  );
+

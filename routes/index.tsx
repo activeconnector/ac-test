@@ -1,18 +1,8 @@
 /** @jsx h */
-import { h, createRef } from "preact";
+import { createRef, h } from "preact";
 import Input from "../islands/Input.tsx";
 
 export default function Home() {
-  const input = createRef();
-
-  const btnClickHandler = () => {
-    const aEle = document.querySelector("a") as HTMLAnchorElement;
-    if (aEle != undefined)
-      aEle.href = input?.current?.value
-        ? `jobs/${input?.current?.value}`
-        : "/error";
-    aEle.click();
-  };
   return (
     <div>
       <a href="https://www.active-connector.com/">

@@ -37,7 +37,7 @@ Deno.test(
 
     await t.step("error is not shown", async () => {
       const error = await page.evaluate(
-        () => document.querySelector("p")?.innerText
+        () => document.querySelector("p")?.innerText,
       );
       assertEquals(error, undefined);
     });
@@ -47,7 +47,7 @@ Deno.test(
       await button.click({ waitFor: "navigation" });
 
       const error = await page.evaluate(
-        () => document.querySelector("p")?.innerText
+        () => document.querySelector("p")?.innerText,
       );
       assertEquals(error, "error: empty input");
     });
@@ -89,5 +89,5 @@ Deno.test(
     /* End of tests */
 
     await browser.close();
-  }
+  },
 );

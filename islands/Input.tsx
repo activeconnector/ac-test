@@ -1,16 +1,17 @@
 /** @jsx h */
-import { h, createRef } from "preact";
+import { createRef, h } from "preact";
 
 export default function Input() {
   const input = createRef();
 
   const btnClickHandler = () => {
     const aEle = document.querySelector("a") as HTMLAnchorElement;
-    if (aEle != undefined)
+    if (aEle !== undefined) {
       aEle.href = input?.current?.value
         ? `jobs/${input?.current?.value}`
         : "/error";
-    aEle.click();
+      aEle.click();
+    }
   };
 
   return (

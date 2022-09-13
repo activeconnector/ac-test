@@ -14,7 +14,6 @@ Deno.test(
     const { browser, page } = await buildFor("chrome", {
       binaryPath: CHROME_BIN,
     });
-    console.log('bin is', CHROME_BIN)
 
     const index = "http://localhost:8000/";
 

@@ -89,5 +89,4 @@ Deno.test(
 
     await browser.close();
   },
-  );
-
+);

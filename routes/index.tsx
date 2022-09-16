@@ -1,5 +1,5 @@
 /** @jsx h */
-import { createRef, h } from "preact";
+import { h } from "preact";
 import Input from "../islands/Input.tsx";
 
 export default function Home() {

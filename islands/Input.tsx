@@ -1,22 +1,17 @@
 /** @jsx h */
-import { createRef, h } from "preact";
+import { h } from "preact";
 
 export default function Input() {
-  const input = createRef();
-
   const btnClickHandler = () => {
     const aEle = document.querySelector("a") as HTMLAnchorElement;
-    if (aEle !== undefined) {
-      aEle.href = input?.current?.value
-        ? `jobs/${input?.current?.value}`
-        : "/error";
-      aEle.click();
-    }
+    const inputEle = document.querySelector("input") as HTMLInputElement;
+    aEle.href = inputEle.value ? `jobs/${inputEle.value}` : "/error";
+    aEle.click();
   };
 
   return (
     <div>
-      <input type="text" ref={input} />
+      <input type="text" />
       <button onClick={btnClickHandler}>
         <a>submit</a>
       </button>

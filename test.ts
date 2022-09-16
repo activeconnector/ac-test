@@ -29,22 +29,22 @@ Deno.test("E2E test", async (t) => {
     assertEquals(await input.value(), "");
   });
 
-    await t.step("error is not shown", async () => {
-      const error = await page.evaluate(
-        () => document.querySelector("p")?.innerText,
-      );
-      assertEquals(error, undefined);
-    });
+  await t.step("error is not shown", async () => {
+    const error = await page.evaluate(
+      () => document.querySelector("p")?.innerText,
+    );
+    assertEquals(error, undefined);
+  });
 
     await t.step("show error for an empty input", async () => {
       const button = await page.querySelector("button");
       await button.click({ waitFor: "navigation" });
 
-      const error = await page.evaluate(
-        () => document.querySelector("p")?.innerText,
-      );
-      assertEquals(error, "error: empty input");
-    });
+    const error = await page.evaluate(
+      () => document.querySelector("p")?.innerText,
+    );
+    assertEquals(error, "error: empty input");
+  });
 
     await t.step("input a random string and click the button", async () => {
       const input = await page.querySelector("input");

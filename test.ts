@@ -30,38 +30,38 @@ Deno.test("E2E test", async (t) => {
   });
 
   await t.step("error is not shown", async () => {
-    const error = await page.evaluate(
-      () => document.querySelector("p")?.innerText,
+    const error = await page.evaluate(() =>
+      document.querySelector("p")?.innerText
     );
     assertEquals(error, undefined);
   });
 
-    await t.step("show error for an empty input", async () => {
-      const button = await page.querySelector("button");
-      await button.click({ waitFor: "navigation" });
+  await t.step("show error for an empty input", async () => {
+    const button = await page.querySelector("button");
+    await button.click({ waitFor: "navigation" });
 
-    const error = await page.evaluate(
-      () => document.querySelector("p")?.innerText,
+    const error = await page.evaluate(() =>
+      document.querySelector("p")?.innerText
     );
     assertEquals(error, "error: empty input");
   });
 
-    await t.step("input a random string and click the button", async () => {
-      const input = await page.querySelector("input");
+  await t.step("input a random string and click the button", async () => {
+    const input = await page.querySelector("input");
 
-      const name = crypto.randomUUID().slice(0, 7);
-      await input.value(name);
+    const name = crypto.randomUUID().slice(0, 7);
+    await input.value(name);
 
-      const button = await page.querySelector("button");
-      await button.click({ waitFor: "navigation" });
+    const button = await page.querySelector("button");
+    await button.click({ waitFor: "navigation" });
 
-      assertEquals(await page.location(), `${index}jobs/${name}`);
+    assertEquals(await page.location(), `${index}jobs/${name}`);
 
-      const body = await page.evaluate(() => {
-        return document.querySelector("div")?.innerText;
-      });
-      assertEquals(body, `Job "${name}" is not available`);
+    const body = await page.evaluate(() => {
+      return document.querySelector("div")?.innerText;
     });
+    assertEquals(body, `Job "${name}" is not available`);
+  });
 
   await t.step("input 'engineer' and click the button", async () => {
     await page.location(index);
@@ -69,18 +69,18 @@ Deno.test("E2E test", async (t) => {
     const input = await page.querySelector("input");
     await input.value("engineer");
 
-      const button = await page.querySelector("button");
-      await button.click({ waitFor: "navigation" });
+    const button = await page.querySelector("button");
+    await button.click({ waitFor: "navigation" });
 
-      assertEquals(await page.location(), `${index}jobs/engineer`);
+    assertEquals(await page.location(), `${index}jobs/engineer`);
 
-      const body = await page.evaluate(() => {
-        return document.querySelector("div")?.innerText;
-      });
-      assertEquals(body, `Job "engineer" is open for you!`);
+    const body = await page.evaluate(() => {
+      return document.querySelector("div")?.innerText;
     });
-    /* End of tests */
+    assertEquals(body, `Job "engineer" is open for you!`);
+  });
 
-    await browser.close();
-  },
-);
+  /* End of tests */
+
+  await browser.close();
+});

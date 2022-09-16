@@ -3,37 +3,31 @@ import { assertEquals } from "testing/asserts.ts";
 
 const CHROME_BIN = Deno.env.get("CHROME_BIN");
 
-Deno.test(
-  "E2E test",
-  {
-    sanitizeResources: false,
-    sanitizeOps: false,
-  },
-  async (t) => {
-    /* Start Sinco */
-    const { browser, page } = await buildFor("chrome", {
-      binaryPath: CHROME_BIN,
-    });
+Deno.test("E2E test", async (t) => {
+  /* Start Sinco */
+  const { browser, page } = await buildFor("chrome", {
+    binaryPath: CHROME_BIN,
+  });
 
-    const index = "http://localhost:8000/";
+  const index = "http://localhost:8000/";
 
-    /* Beginning of tests */
+  /* Beginning of tests */
 
-    await t.step("click the logo", async () => {
-      await page.location(index);
-
-      const image = await page.querySelector("img");
-      await image.click({ waitFor: "navigation" });
-
-      assertEquals(await page.location(), "https://www.active-connector.com/");
-    });
-
+  await t.step("click the logo", async () => {
     await page.location(index);
 
-    await t.step("input is empty", async () => {
-      const input = await page.querySelector("input");
-      assertEquals(await input.value(), "");
-    });
+    const image = await page.querySelector("img");
+    await image.click({ waitFor: "navigation" });
+
+    assertEquals(await page.location(), "https://www.active-connector.com/");
+  });
+
+  await t.step("input is empty", async () => {
+    await page.location(index);
+
+    const input = await page.querySelector("input");
+    assertEquals(await input.value(), "");
+  });
 
     await t.step("error is not shown", async () => {
       const error = await page.evaluate(
@@ -69,11 +63,11 @@ Deno.test(
       assertEquals(body, `Job "${name}" is not available`);
     });
 
+  await t.step("input 'engineer' and click the button", async () => {
     await page.location(index);
 
-    await t.step("input 'engineer' and click the button", async () => {
-      const input = await page.querySelector("input");
-      await input.value("engineer");
+    const input = await page.querySelector("input");
+    await input.value("engineer");
 
       const button = await page.querySelector("button");
       await button.click({ waitFor: "navigation" });

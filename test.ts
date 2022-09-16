@@ -22,9 +22,9 @@ Deno.test("E2E test", async (t) => {
     assertEquals(await page.location(), "https://www.active-connector.com/");
   });
 
-  await page.location(index);
-
   await t.step("input is empty", async () => {
+    await page.location(index);
+
     const input = await page.querySelector("input");
     assertEquals(await input.value(), "");
   });
@@ -63,9 +63,9 @@ Deno.test("E2E test", async (t) => {
     assertEquals(body, `Job "${name}" is not available`);
   });
 
-  await page.location(index);
-
   await t.step("input 'engineer' and click the button", async () => {
+    await page.location(index);
+
     const input = await page.querySelector("input");
     await input.value("engineer");
 

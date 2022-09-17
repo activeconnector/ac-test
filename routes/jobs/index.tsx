@@ -1,6 +1,6 @@
 /** @jsx h */
 import { h } from "preact";
-import JobSearchForm from "../components/JobSearchForm.tsx";
+import JobSearchForm from "../../components/JobSearchForm.tsx";
 
 export const handler: Handlers = {
   async POST(_req, ctx): Response {
@@ -10,10 +10,7 @@ export const handler: Handlers = {
     const body = Object.fromEntries(new URLSearchParams(c))
 
     if (!body.job) {
-      return new Response("", {
-        status: 307,
-        headers: { Location: '/jobs' },
-      });
+      return ctx.render()
     }
     return new Response("", {
       status: 307,
@@ -22,19 +19,13 @@ export const handler: Handlers = {
   }
 };
 
-export default function Home() {
+const EmptyInput = () => {
   return (
     <div>
-      <a href="https://www.active-connector.com/">
-        <img
-          src="/logo.png"
-          alt="Active Connector company logo"
-        />
-      </a>
-      <h2>
-        Skill Test (Software Engineer)
-      </h2>
+      <p>error: empty input</p>
       <JobSearchForm />
     </div>
   );
-}
+};
+
+export default EmptyInput;

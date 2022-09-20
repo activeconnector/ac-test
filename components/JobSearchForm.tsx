@@ -4,7 +4,7 @@ import { h } from "preact";
 const JobSearchForm = () => {
   return (
     <form method="POST">
-      <input type="text" name="job"/>
+      <input type="text" name="job" />
       <button type="submit">Search Job</button>
     </form>
   );

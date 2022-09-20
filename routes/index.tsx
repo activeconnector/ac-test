@@ -13,6 +13,9 @@ export default function Home() {
       <h2>
         Skill Test (Software Engineer)
       </h2>
+      <section>
+        <button onclick="return location.href='/jobs'">CLICK HERE TO FIND YOUR DREAM JOB</button>
+      </section>
     </div>
   );
 }

@@ -1,10 +1,7 @@
 name: ci
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  workflow_dispatch
 
 jobs:
   test:
@@ -32,6 +29,9 @@ jobs:
 
       - name: Lint
         run: deno lint
+
+      - name: Run Server Async
+        run: deno task dev &
 
       - name: Test
         run: deno task start && CHROME_BIN=$(which chrome) deno task test --quiet

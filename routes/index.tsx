@@ -1,5 +1,6 @@
 /** @jsx h */
 import { h } from "preact";
+import Search from "../islands/search.tsx";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <h2>
         Skill Test (Software Engineer)
       </h2>
+      <Search />
     </div>
   );
 }
